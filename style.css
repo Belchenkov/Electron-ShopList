@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Wendy+One');
+
+body {
+    background: url("img/regal.png") #fff;
+    font-family: 'Indie Flower', cursive;
+    font-size: 22px;
+}
+
+nav .nav-wrapper.z-depth-4 {
+    font-family: 'Wendy One', sans-serif!important;
+}
+
+#form label {
+    font-size: 1.1em;
+    color: #000;
+}

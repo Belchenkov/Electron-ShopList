@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <title>Electron: Shopping List</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Shopping List</h1>
+    <nav>
+        <div class="nav-wrapper  blue-grey darken-3 z-depth-4">
+            <a class="brand-logo  center">Shopping List</a>
+        </div>
+    </nav>
     <ul></ul>
 
     <script>
@@ -14,7 +21,9 @@
 
         // Catch add
         ipcRenderer.on('item:add', (e, item) => {
+            ul.className = 'collection';
             const li = document.createElement('li');
+            li.className = 'collection-item';
             const itemText = document.createTextNode(item);
             li.appendChild(itemText);
             ul.appendChild(li);
@@ -23,6 +32,7 @@
         // Catch clear
         ipcRenderer.on('item:clear', () => {
            ul.innerHTML = '';
+           ul.className = '';
         });
 
         // Remove Item
@@ -30,6 +40,9 @@
 
         function removeItem(e) {
             e.target.remove();
+            if (ul.children.length == 0) {
+                ul.className = '';
+            }
         }
     </script>
 </body>
